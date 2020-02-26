@@ -5,6 +5,7 @@ export function run() {
   utils.vueCliService('build').then(() => {
     const source = path.resolve(__dirname, '../../../dist')
     const destination = path.join(process.cwd(), 'dist')
+    console.error(`${source},${destination}`)
     if (source === destination) return
     utils.copyFile(source, destination)
   })

@@ -33,6 +33,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
+      console.error(this.page);
       this.$store.commit('setCurrentPage', this.page)
     })
 

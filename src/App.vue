@@ -89,7 +89,7 @@ export default {
       }[this.mode]
     },
     page() {
-      return parseInt(this.$route.params.page || 1)
+      return parseInt(this.$route.hash.substr(1) || 1)
     },
   },
 
@@ -123,7 +123,9 @@ export default {
     },
     nextSlide() {
       if (this.page >= this.decks.length) return
-      this.$router.push({ name: 'home', params: { page: this.page + 1 } })
+      this.$router.push({ path: `/#${this.page + 1}` })
+      //this.$router.push({ name: 'home', params: { page: '#' + (this.page + 1) } })
+      this.$store.commit('setCurrentPage', this.page)
       this.$store.commit('setStep', 0)
     },
     previous() {
@@ -134,8 +136,9 @@ export default {
     },
     previousSlide() {
       if (this.page <= 1) return
-      this.$router.push({ name: 'home', params: { page: this.page - 1 } })
-
+      this.$router.push({ path: `/#${this.page - 1}` })
+      //this.$router.push({ name: 'home', params: { page: this.page - 1 } })
+      this.$store.commit('setCurrentPage', this.page)
       setTimeout(() => {
         this.$store.commit('setStep', this.steps)
       }, 0)
