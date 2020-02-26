@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: './mdx-vue-deck',
+  publicPath: '/mdx-vue-deck',
   outputDir: "docs",
   configureWebpack: {
     module: {
