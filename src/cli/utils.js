@@ -86,6 +86,7 @@ export function vueCliService(...args) {
 }
 
 export function prepareVueCliService({ flags }, filename) {
+  console.log(flags)
   if (flags.config) {
     const tailwindThemeConfig = path.resolve(flags.config)
     !exists(tailwindThemeConfig) && die(colors.file(flags.config), 'does not exists')
