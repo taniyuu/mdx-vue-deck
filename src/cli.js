@@ -43,7 +43,10 @@ const cli = meow(
       config: {
         type: 'string',
         alias: 'c',
-      }
+      },
+      "public-path": {
+        type: 'string'
+      },
     },
   }
 )
