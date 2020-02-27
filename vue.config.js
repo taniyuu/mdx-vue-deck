@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.__PUBLIC_PATH__ || '/',
-  outputDir: "docs",
+  outputDir: process.env.__OUTPUT_DIR__ || 'dist',
   configureWebpack: {
     module: {
       rules: [

@@ -86,9 +86,11 @@ export function vueCliService(...args) {
 }
 
 export function prepareVueCliService({ flags }, filename) {
-  console.log(flags)
   if (flags.publicPath) {
-    process.env.__PUBLIC_PATH__ = flags.publicPath;
+    process.env.__PUBLIC_PATH__ = flags.publicPath
+  }
+  if (flags.outputDir) {
+    process.env.__OUTPUT_DIR__ = flags.outputDir
   }
   if (flags.config) {
     const tailwindThemeConfig = path.resolve(flags.config)
