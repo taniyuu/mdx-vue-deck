@@ -124,9 +124,9 @@ export default {
     nextSlide() {
       if (this.page >= this.decks.length) return
       this.$router.push({ path: `/#${this.page + 1}` })
-      //this.$router.push({ name: 'home', params: { page: '#' + (this.page + 1) } })
       this.$store.commit('setCurrentPage', this.page)
       this.$store.commit('setStep', 0)
+      this.$store.commit('setSteps', 0)
     },
     previous() {
       if (this.steps && this.step > 0) {
@@ -137,7 +137,6 @@ export default {
     previousSlide() {
       if (this.page <= 1) return
       this.$router.push({ path: `/#${this.page - 1}` })
-      //this.$router.push({ name: 'home', params: { page: this.page - 1 } })
       this.$store.commit('setCurrentPage', this.page)
       setTimeout(() => {
         this.$store.commit('setStep', this.steps)

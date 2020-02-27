@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "babelify": "babel src --out-dir lib --copy-files",
     "help": "babel-node src/cli.js",
-    "start": "babel-node src/cli.js dev hello.mdx"
+    "start": "babel-node src/cli.js dev hello.mdx --public-path '/hogehoge'"
   },
   "main": "lib/index.js",
   "dependencies": {

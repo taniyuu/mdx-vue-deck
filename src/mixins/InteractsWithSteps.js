@@ -12,10 +12,6 @@ export default {
     })
   },
 
-  beforeDestroy() {
-    this.$store.commit('setSteps', 0)
-  },
-
   watch: {
     active(value) {
       if (value) {
@@ -24,14 +20,14 @@ export default {
     },
     step(step) {
       if (this.active) {
-        history.pushState({}, '', `/#/${this.currentPage}${step ? `.${step}`: ''}`);
+        history.pushState({}, '', `./#${this.currentPage}${step ? `.${step}`: ''}`);
       }
     },
   },
 
   computed: {
     currentPage() {
-      return parseInt(this.$route.params.page)
+      return parseInt(this.$route.hash.substr(1) || 1)
     },
     active() {
       return this.currentPage === this.componentPage
